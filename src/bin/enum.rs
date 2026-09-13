@@ -1,29 +1,19 @@
-enum Color {
-    Red,
-    Green,
-    Blue,
+enum Vehicle{
+    Unknown,
+    Car{desc: String},
+    Motorbike{desc: String},
 }
 
-fn red_handler() {
-    println!("Red color selected");
-}
-
-fn green_handler() {
-    println!("Green color selected");
-}
-
-fn blue_handler() {
-    println!("Blue color selected");
-}
-
-fn main() {
-    let colors = vec![Color::Blue, Color::Green, Color::Red];
-
-    for color in colors {
-        match color {
-            Color::Red => red_handler(),
-            Color::Green => green_handler(),
-            Color::Blue => blue_handler(),
+fn main(){
+    let car = Vehicle::Car{desc: String::from("I have a petrol engine")};
+    let motorbike = Vehicle::Motorbike{desc: String::from("I have two wheels")};
+    let vehicles = vec![car,motorbike,Vehicle::Unknown];
+    for v in vehicles{
+        match v{
+            Vehicle::Car{desc} => println!("{}",desc),
+            Vehicle::Motorbike{desc} => println!("{}",desc),
+            Vehicle::Unknown => ()
         }
     }
 }
+
