@@ -18,6 +18,13 @@ impl Email {
 }
 
 fn main() {
-    let email = Email::new(String::from("test@gmail.com"));
-    println!("{:?}", email);
+    let email = Email::new(String::from("testgmail.com"));
+    match email {
+        Ok(email) => {
+            println!("{:?}", email);
+        }
+        Err(err) => {
+            println!("{:?}", err);
+        }
+    }
 }
